@@ -1,0 +1,11 @@
+{
+  "version": "1.0",
+  "apis": [
+    {
+      "identifier": "betaseries",
+      "source": "@betaseries/v3.0#5awffm0y49t0w",
+      "integrity": "sha512-3MKE1dZLyZFRsB/6dD8XUtBo74p/JD+7MU6qDmMlyHtEIDqel9rn9zuBtPmfhDA9PAUCgbhMyqfJ6PYbO7z7Tw==",
+      "installerVersion": "6.1.2"
+    }
+  ]
+}
