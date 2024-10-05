@@ -7,7 +7,7 @@ export async function searchSeries(title:string) {
 
   try {
     
-    betaseries.auth('b510be640b15');
+    betaseries.auth(process.env.NEXT_PUBLIC_BETASERIES_KEY as string);
 
     
     const series = (await betaseries.getSearchShows({text:title})).data

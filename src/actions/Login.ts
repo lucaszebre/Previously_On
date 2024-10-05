@@ -10,7 +10,7 @@ export const login = async (
 ) => {
 
   try {
-    betaseries.auth('b510be640b15');
+    betaseries.auth(process.env.NEXT_PUBLIC_BETASERIES_KEY as string);
     const p = md5(password);    
     const data =  await betaseries.postMembersAuth({password:p,login:email,})
     return data.data

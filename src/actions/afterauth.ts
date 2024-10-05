@@ -12,7 +12,7 @@ export const afterauth = async (code:string) => {
     const client_secret = cookieStore.get('client_secret')?.value;
  
     if(code && redirect_uri && client_id && client_secret){
-        betaseries.auth('b510be640b15');
+        betaseries.auth(process.env.NEXT_PUBLIC_BETASERIES_KEY as string);
 
         const data = await betaseries.postOauthAccessToken({code,redirect_uri,client_id,client_secret}) as any
         // console.log(data.data,'in the after auth')

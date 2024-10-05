@@ -11,7 +11,7 @@ export async function getUserInfo() {
 
     if(access_token){    
 
-      const data = await  axios.get('https://api.betaseries.com/members/infos',{headers:{"X-BetaSeries-Key":'b510be640b15',"X-BetaSeries-Token":access_token}})
+      const data = await  axios.get('https://api.betaseries.com/members/infos',{headers:{"X-BetaSeries-Key":process.env.NEXT_PUBLIC_BETASERIES_KEY,"X-BetaSeries-Token":access_token}})
       
         return data.data
 

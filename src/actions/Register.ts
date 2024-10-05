@@ -12,7 +12,7 @@ export const register = async (
 
   try {
     
-    betaseries.auth('b510be640b15');
+    betaseries.auth(process.env.NEXT_PUBLIC_BETASERIES_KEY as string);
 
  const data = await    betaseries.postMembersSignup({login,password,email})
 
