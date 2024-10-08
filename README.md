@@ -1,6 +1,6 @@
 # Previously On
 
-![App Screenshot](./public/previously-on.jpg)
+![App Screenshot](./public/previously-on.png)
 
 Previously On is a web application that allows users to track their favorite TV series and movies. Built with Next.js and integrating with the BetaSeries API, this app provides a comprehensive platform for managing your watched content, exploring new shows, and engaging with a community of fellow TV and movie enthusiasts.
 
