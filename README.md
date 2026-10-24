@@ -1,75 +1,52 @@
 # Previously On
 
-![App Screenshot](./public/previously_on.png)
+Track the TV shows you watch, episode by episode, on top of your [BetaSeries](https://www.betaseries.com/) account.
 
-Previously On is a web application that allows users to track their favorite TV series and movies. Built with Next.js and integrating with the BetaSeries API, this app provides a comprehensive platform for managing your watched content, exploring new shows, and engaging with a community of fellow TV and movie enthusiasts.
+Live demo: https://previously-on-eight.vercel.app
 
-## Features
+![Previously On home page](./public/previously_on.png)
 
-- **Watch List Management**: Keep track of series and movies you've watched.
-- **Episode Tracking**: Mark episodes as watched or unwatched.
-- **Actor Details**: Explore detailed information about actors in your favorite shows.
-- **Trailer Viewing**: Watch trailers for series and movies when available.
-- **BetaSeries Integration**: Log in with your BetaSeries account for a seamless experience.
-- **Community Interaction**: Post comments on series and movies.
-- **Responsive Design**: Enjoy a great experience on both desktop and mobile devices.
+## What it does
 
-## Technologies Used
+- Sign in with your BetaSeries account (OAuth) — the app stores the access token in a cookie and calls the BetaSeries API on your behalf
+- See the shows in your BetaSeries library, filter them by title, and search BetaSeries to add new shows
+- Open a show to browse its seasons and episodes, mark one episode or everything "up to here" as watched, unmark episodes, and archive a show
+- Watch the show's trailers (YouTube embeds via `@next/third-parties`)
+- Read, post, edit and delete comments on an episode
+- Look up a character/actor's details
+- Add and remove BetaSeries friends and see your friends list
+- Dark theme by default (`next-themes`), toasts for feedback
 
-- **Next.js**: React framework for building efficient and scalable web applications.
-- **shadcn/ui**: A collection of re-usable components built with Radix UI and Tailwind CSS.
-- **BetaSeries API**: Provides comprehensive data on TV series and movies.
+## Stack
 
-## Getting Started
+- Next.js 14 (App Router, server actions) + React 18 + TypeScript
+- Tailwind CSS 3, shadcn/ui (Radix UI primitives), lucide-react, Headless UI
+- TanStack Query 5 for client-side data fetching and mutations
+- axios and a generated BetaSeries SDK (`@api/betaseries`, built with ReadMe's `api` from the OpenAPI spec in `.api/`)
+- react-hook-form + zod, react-hot-toast, react-player
 
-To get started with Previously On, follow these steps:
+## Run locally
 
-1. Clone this repository:
-   ```
-   git clone https://github.com/yourusername/previously-on.git
-   ```
-2. Navigate to the project directory:
-   ```
-   cd previously-on
-   ```
-3. Install dependencies:
-   ```
-   npm install
-   ```
-4. Set up your environment variables:
-   - Create a `.env.local` file in the root directory
-   - Add your BetaSeries API key:
-     ```
-     BETASERIES_API_KEY=your_api_key_here
-     ```
-5. Run the development server:
-   ```
-   npm run dev
-   ```
+Requires Node 18+ and npm.
 
-## Usage
+```bash
+git clone https://github.com/lucaszebre/Previously_On.git
+cd Previously_On
+npm ci
+cp .env.example .env.local   # then fill in the values
+npm run dev                  # http://localhost:3000
+```
 
-1. Open your browser and navigate to `http://localhost:3000`
-2. Log in with your BetaSeries account
-3. Start adding series and movies to your watch list
-4. Mark episodes as watched, explore actor details, and watch trailers
-5. Engage with the community by posting comments on series and movies
+Environment variables (see `.env.example`):
 
-## Contributing
+- `NEXT_PUBLIC_BETASERIES_KEY` — your BetaSeries API key (also used as the OAuth client id)
+- `NEXT_PUBLIC_BETASERIES_CLIENT_SECRET` — the matching BetaSeries OAuth client secret
+- `NEXT_PUBLIC_URL` — the URL this app is served from, used as the OAuth `redirect_uri`
 
-Contributions are welcome! If you'd like to contribute to Previously On, please follow these steps:
+You need a BetaSeries developer key: register an application at https://www.betaseries.com/api/ and set its callback URL to `NEXT_PUBLIC_URL`.
 
-1. Fork the repository
-2. Create a new branch: `git checkout -b feature/your-feature-name`
-3. Make your changes and commit them: `git commit -m 'Add some feature'`
-4. Push to the branch: `git push origin feature/your-feature-name`
-5. Submit a pull request
+Other scripts: `npm run build`, `npm start`, `npm run lint`.
 
-## License
+## Status
 
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details.
-
-## Acknowledgments
-
-- Thanks to BetaSeries for providing the API that powers this application.
-- Shout out to the Next.js and shadcn/ui communities for their excellent tools and documentation.
+Built in 2024 as a two-week school project; not actively maintained.
