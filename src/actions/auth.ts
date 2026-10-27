@@ -6,7 +6,7 @@ import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
 process.env;
 export const auth = async () => {
-  const cookieStore = cookies();
+  const cookieStore = await cookies();
   betaseries.auth(process.env.NEXT_PUBLIC_BETASERIES_KEY as string);
   const data = (await betaseries.postMembersOauth({
     client_id: process.env.NEXT_PUBLIC_BETASERIES_KEY,

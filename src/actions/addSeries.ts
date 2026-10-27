@@ -6,7 +6,7 @@ import { redirect } from 'next/navigation';
 
 export async function addSeries(listSerie: string[]) {
   try {
-    const cookiesStore = cookies();
+    const cookiesStore = await cookies();
     const access_token = cookiesStore.get('access_token')?.value;
 
     if (access_token) {
