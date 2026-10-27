@@ -4,7 +4,7 @@ import { cookies } from 'next/headers';
 import { redirect } from 'next/navigation';
 import axios from 'axios'
 export async function getUserInfo() {
-  const cookiesStore = cookies()
+  const cookiesStore = await cookies()
   const access_token = cookiesStore.get('access_token')?.value
  
   

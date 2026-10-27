@@ -6,7 +6,7 @@ import betaseries from '@api/betaseries';
 import { cookies } from 'next/headers';
 
 export const afterauth = async (code:string) => {
-    const cookieStore = cookies()
+    const cookieStore = await cookies()
     const redirect_uri = cookieStore.get('redirect_uri')?.value;
     const client_id = cookieStore.get('client_id')?.value;
     const client_secret = cookieStore.get('client_secret')?.value;
